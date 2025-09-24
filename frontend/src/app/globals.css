@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@400;700&display=swap");
+
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: "Noto Sans KR", sans-serif;
+  margin: 0;
+}
+
+/* --- 1. Grid 레이아웃 정의 --- */
+.grid-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 6fr 1.5fr; /* 좌측 사이드바 | 중앙 콘텐츠 | 우측 사이드바 */
+  grid-template-areas:
+    "header    header    header"
+    ".         nav       ."
+    "sidebar-l main      sidebar-r";
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+/* --- 2. 각 Grid 영역에 이름 할당 --- */
+.grid-header {
+  grid-area: header;
+}
+.grid-nav {
+  grid-area: nav;
+}
+.grid-main {
+  grid-area: main;
+}
+.grid-sidebar-left {
+  grid-area: sidebar-l;
+}
+.grid-sidebar-right {
+  grid-area: sidebar-r;
+}
+
+/* --- 3. 헤더 및 네비게이션 바 --- */
+.grid-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 2px solid #333;
+}
+.site-name {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+}
+.search-bar {
+  flex-grow: 1;
+  margin: 0 2rem;
+  padding: 0.75rem;
+  background-color: #222;
+  border: 1px solid #444;
+  border-radius: 5px;
+  color: #999;
+  text-align: center;
+}
+.auth-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.welcome-message {
+  white-space: nowrap;
+  font-weight: bold;
+}
+.login-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #0070f3;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+.signup-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #e50914;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.grid-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 0;
+  border-bottom: 1px solid #333;
+  font-weight: bold;
+}
+
+/* --- 4. 중앙 콘텐츠 및 사이드바 --- */
+.grid-main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.content-section {
+  display: flex;
+  gap: 1.5rem;
+}
+.content-section h2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2rem;
+  margin-top: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #e50914;
+  letter-spacing: 0.5px;
+}
+.column {
+  flex: 1;
+}
+
+/* --- 5. 뉴스 목록 아이템 --- */
+.news-list-scrollable {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+.news-item a {
+  display: block;
+  padding: 1rem;
+  background-color: #222;
+  border: 1px solid #333;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s;
+  margin-bottom: 1rem;
+}
+.news-item a:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+.news-item h3 {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem 0;
+  color: #f0f0f0;
+  font-weight: 500;
+}
+.news-item p {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0;
+}
+
+/* --- 6. 플레이스홀더 및 사이드바 --- */
+.grid-sidebar-left,
+.grid-sidebar-right {
+  padding: 1rem;
+}
+.ad-box-vertical,
+.other-features,
+.news-item-placeholder-large {
+  background-color: #222;
+  border: 1px solid #333;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  width: 100%;
+}
+.ad-box-vertical {
+  height: 600px;
+  margin-bottom: 1rem;
+}
+.other-features {
+  height: 330px;
+}
+.news-item-placeholder-large {
+  height: 600px;
+}
